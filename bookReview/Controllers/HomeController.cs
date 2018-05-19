@@ -9,12 +9,41 @@ namespace bookReview.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult BookList(string search)
+        public ActionResult Comments(int? id)
+        {
+            using (_561EntityModel db = new _561EntityModel())
+            {   
+                return View(db.Comments.Where(a => a.BookID == id).ToList());
+            }
+        }
+        /*[HttpPost]
+        public ActionResult Commentars2(string c,Book b)
+        {   
+            using (_561EntityModel db = new _561EntityModel())
+            {
+                Comment userComment = new Comment();
+                userComment.BookID = b.BookID;
+                userComment.Book = b;
+                userComment.CommentText = c;
+                userComment.UserID = Session["UserID"].ToString();
+                return View(db.Comments.Where(a => a.BookID == b.BookID).ToList());
+            }
+        }*/
+        public ActionResult BookList()
         {   using (_561EntityModel db = new _561EntityModel())
             { 
-                return View(db.Books.Where(a=>a.Title.Contains(search)|a.Author.Contains(search)).ToList());
+                return View(db.Books.ToList());
             }
-            return View();
+            
+        }
+        [HttpPost]
+        public ActionResult BookList(string search)
+        {
+            using (_561EntityModel db = new _561EntityModel())
+            {
+                return View(db.Books.Where(a => a.Title.Contains(search) | a.Author.Contains(search)).ToList());
+            }
+
         }
         public ActionResult CreateBook()
         {  

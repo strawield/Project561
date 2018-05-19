@@ -32,5 +32,6 @@ namespace bookReview.Models
         public string ConfirmPassword { get; set; }
         [EmailAddress(ErrorMessage ="Enter Valid eMail")]
         public string eMail { get; set; }
+        public bool Admin { get; set; }
     }
 }

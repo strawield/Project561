@@ -1,0 +1,63 @@
+﻿@model IEnumerable<bookReview.Models.Comment>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+@using (Html.BeginForm())
+{
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Comments</title>
+    </head>
+    @Html.TextBox("comment")
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+    <body>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Book.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommentText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserID)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommentText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserID)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CommentID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.CommentID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CommentID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </body>
+}
+</html>
