@@ -8,13 +8,19 @@
 {
     <hd> Hello @Session["Username"].ToString().</hd>
 }
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>LoggedIn</title>
-</head>
-<body>
-    <div> 
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>LoggedIn</title>
+    </head>
+    <div>
+        @Html.ActionLink("Back to List", "BookList")
     </div>
-</body>
-</html>
+    <div>
+        @Html.ActionLink("Create Book", "CreateBook")
+    </div>
+    <body>
+        <div>
+        </div>
+    </body>
+    </html>

@@ -9,8 +9,8 @@ namespace bookReview.Models
     {
         public int CommentID { get; set; }
         public string CommentText { get; set; }
-        public string UserID { get; set; }
-        public int BookID { get; set; }
-        public virtual Book Book { get; set; }
+        public string UserN { get; set; }
+        public string BookTitle { get; set; }
+        //public virtual Book Book { get; set; }
     }
 }

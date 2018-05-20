@@ -15,15 +15,15 @@
     </head>
     <body>
         <p>
-            @Html.ActionLink("Create New", "Create")
+            @Html.ActionLink("Create New", "CreateBook")
         </p>
 
         @Html.TextBox("search") <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" />
+                <input type="submit" value="Search" class="btn btn-default" />
             </div>
         </div>
-        
+
         <table class="table">
             <tr>
                 <th>
@@ -45,30 +45,39 @@
 
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                
-                <td>
-                    @Html.ActionLink("Comments", "Comments", new { id = item.BookID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.BookID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.BookID })
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Comments", "Comments", new { id = item.BookID }) |
+                        @Html.ActionLink("Rating", "Rating", new { id = item.BookID })
+
+                    </td>
+                </tr>
 
             }
 
         </table>
+        <div>
+            @Html.ActionLink("Log In", "LogIn")
+        </div>
+        <div>
+            @Html.ActionLink("Register", "Register")
+        </div>
+        <div>
+            @Html.ActionLink("Log Out", "LogOut")
+        </div>
     </body>
 }
 </html>

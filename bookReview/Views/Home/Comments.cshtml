@@ -21,18 +21,18 @@
     </div>
     <body>
         <p>
-            @Html.ActionLink("Create New", "Create")
+            @Html.ActionLink("Create New", "CreateBook")
         </p>
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Book.Title)
+                    @Html.DisplayNameFor(model => model.BookTitle)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.CommentText)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.UserID)
+                    @Html.DisplayNameFor(model => model.UserN)
                 </th>
                 <th></th>
             </tr>
@@ -41,23 +41,25 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Book.Title)
+                        @Html.DisplayFor(modelItem => item.BookTitle)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CommentText)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.UserID)
+                        @Html.DisplayFor(modelItem => item.UserN)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.CommentID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.CommentID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CommentID })
+                        @Html.ActionLink("Back to List", "BookList") |
+                        @Html.ActionLink("Delete", "DeleteC", new { id = item.CommentID })
                     </td>
                 </tr>
             }
 
         </table>
+        <div>
+            @Html.ActionLink("Log Out", "LogOut")
+        </div>
     </body>
 }
 </html>
