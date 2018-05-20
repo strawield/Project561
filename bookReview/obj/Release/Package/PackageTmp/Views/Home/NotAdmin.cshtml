@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<h1> You are not an admin.</h1>
+<body>
+    <div>
+        <td>
+            @Html.ActionLink("Register", "Register") |
+
+            @Html.ActionLink("LogIn", "LogIn") |
+        
+            @Html.ActionLink("BookList", "BookList")  
+            <div>
+                @Html.ActionLink("Log Out", "LogOut")
+            </div>
+        </td>
+    </div>
+</body>
+</html>

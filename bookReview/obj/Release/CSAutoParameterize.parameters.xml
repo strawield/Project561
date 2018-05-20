@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="561EntityModelFinal-Web.config Connection String" description="561EntityModelFinal Connection String used in web.config by the application to access the database." defaultValue="Data Source=tcp:bookreview561final.database.windows.net,1433;Initial Catalog=bookReview561Final_db;Persist Security Info=False;User ID=strawield;Password=Lana1997;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\lanag\\Desktop\\561Books\\bookReview\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='561EntityModelFinal']/@connectionString" />
+  </parameter>
+</parameters>

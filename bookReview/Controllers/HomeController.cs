@@ -200,7 +200,7 @@ namespace bookReview.Controllers
         {
             using (_561EntityModel db = new _561EntityModel())
             {
-                var usr = db.Users.Single(u => u.UserName == user.UserName && u.Password == user.Password);
+                var usr = db.Users.Where(u => u.UserName == user.UserName && u.Password == user.Password).FirstOrDefault();
                 if(usr!= null)
                 {
                     Session["Admin"] = usr.Admin;
