@@ -150,17 +150,23 @@ namespace bookReview.Controllers
             if (ModelState.IsValid)
             {
                 using (_561EntityModel db = new _561EntityModel())
-            {
-                  db.Books.Add(book);
-                        db.SaveChanges();
-                    }
-                    ModelState.Clear();
-                    ViewBag.Message = book.Title + "Saved";
-                }
+                {
+                    if (Session["UserID"] != null)
+                    {
 
-                return View();
+                        db.Books.Add(book);
+                        db.SaveChanges();
+
+                        ModelState.Clear();
+                        ViewBag.Message = book.Title + "Saved";
+                        return RedirectToAction("BookList");
+                    }
+                    else RedirectToAction("LogIn");
+                }
+            }
+                return RedirectToAction("BookList");
          }
-           
+         
         public ActionResult Index(string search)
         {
            
@@ -174,6 +180,7 @@ namespace bookReview.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(User user)
         {
             if (ModelState.IsValid)
@@ -186,7 +193,6 @@ namespace bookReview.Controllers
                 ModelState.Clear();
                 ViewBag.Message = user.UserName + "Success";
             }
-
             return RedirectToAction("LogIn");
         }
         public ActionResult LogIn()
